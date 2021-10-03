@@ -1,0 +1,2 @@
+"use" [x] "show" [tables] shows the tables in a database
+"describe" [table] lists table elements
