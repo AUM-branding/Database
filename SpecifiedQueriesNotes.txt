@@ -1,0 +1,126 @@
+use Redacted
+show tables;
+
+describe CUSTOMER;
+describe INVOICES;
+describe ITEM;
+
+/*
+Various selects:
+*/
+
+-- Select a certain item
+select ITEM_ID, DESCRIPTION, PRICE from ITEM;
+
+-- Select all invoice data
+select * from INVOICES;
+
+-- Select customers with credit limit above 1000
+select FIRST_NAME, LAST_NAME, CREDIT_LIMIT
+from CUSTOMER
+
+where CREDIT_LIMIT >= 1000;
+
+-- Select invoices from a customer with a specified date
+select INVOICE_NUM
+from INVOICES
+
+where CUST_ID = 125 and INVOICE_DATE = '2021-11-15';
+
+-- Select customer with a certain sales rep
+select CUST_ID, FIRST_NAME, LAST_NAME
+from CUSTOMER
+
+where REP_ID = 10 or REP_ID = 15;
+
+-- Select items from all categories except one
+select ITEM_ID, DESCRIPTION
+from ITEM
+
+where CATEGORY != 'HOR';
+
+-- Select items between a certain range
+select ITEM_ID, DESCRIPTION, ON_HAND
+from ITEM
+
+where ON_HAND between 10 and 30;
+
+-- Select items from a category and provide a value for its multitude of items
+select ITEM_ID, DESCRIPTION, (ON_HAND * PRICE) as ON_HAND_VALUE
+from ITEM
+
+where CATEGORY = 'CAT';
+
+-- Select items from a category and provide the same value where it is minimally set to a number
+select ITEM_ID, DESCRIPTION, (ON_HAND * PRICE) as ON_HAND_VALUE
+from ITEM
+
+where (ON_HAND * PRICE) >= 1500;
+
+-- Select using "IN" to simplify multiple duplicate conditions
+select ITEM_ID, DESCRIPTION
+from ITEM
+
+where CATEGORY in ('FSH', 'BRD');
+
+-- Select customers with a first name starting with a letter
+select CUST_ID, FIRST_NAME, LAST_NAME
+from CUSTOMER
+
+where FIRST_NAME like 'A%';
+
+-- Alphabetically list all items by description
+select *
+from ITEM
+
+order by DESCRIPTION;
+
+-- Select all items ordered by a location, then by their ID
+select *
+from ITEM
+
+order by LOCATION, ITEM_ID;
+
+-- Select how many customers have balances greater than their credit limit and display it with the default header
+select count(*)
+from CUSTOMER
+
+where BALANCE > CREDIT_LIMIT;
+
+-- Select the total balances for customers with a certain sales rep, and balance that is less than their limit
+select SUM(BALANCE)
+from CUSTOMER
+
+where REP_ID = 10 and BALANCE < CREDIT_LIMIT;
+
+-- Select item values where the total on hand is more than the average
+select ITEM_ID, DESCRIPTION, (ON_HAND * PRICE) as ON_HAND_VALUE
+from ITEM
+
+where (ON_HAND) > (select avg(ON_HAND) 
+                   from ITEM);
+
+-- Select item data where the price/item is holding the lowest price
+select ITEM_ID, DESCRIPTION, PRICE
+from ITEM
+
+where PRICE = (select MIN(PRICE)
+               from ITEM);
+
+-- Select the sum of balances per sales rep, and group and order the results by rep
+select REP_ID, sum(BALANCE) as BALANCE
+from CUSTOMER
+
+group by REP_ID order by REP_ID;
+
+-- Select each sales rep customer balance sum where the sum is greater than 150
+select REP_ID, sum(BALANCE) as BALANCE
+from CUSTOMER
+
+group by REP_ID
+having sum(BALANCE) > 150
+order by REP_ID;
+
+/*
+Joined selects:
+*/
