@@ -119,8 +119,15 @@ from CUSTOMER
 
 group by REP_ID
 having sum(BALANCE) > 150
+
 order by REP_ID;
 
 /*
 Joined selects:
 */
+
+-- Select customer data from a seperate table
+select INVOICE_NUM, INVOICE_DATE, INVOICES.CUST_ID, FIRST_NAME, LAST_NAME
+from INVOICES
+
+join CUSTOMER on INVOICES.CUST_ID = CUSTOMER.CUST_ID
