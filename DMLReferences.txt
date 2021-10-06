@@ -203,3 +203,9 @@ where PRICE > all
 select ITEM.ITEM_ID, DESCRIPTION, ON_HAND, INVOICE_NUM, QUANTITY
 from ITEM
 left join INVOICE_LINE on ITEM.ITEM_ID = INVOICE_LINE.ITEM_ID
+
+----- Select from numerous tables using where over join
+select FIRST_NAME, LAST_NAME
+from PROPERTY, OWNER
+where OWNER.OWNER_NUM = PROPERTY.OWNER_NUM
+and BDRMS = 2
