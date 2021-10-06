@@ -221,7 +221,7 @@ where exists(
 )
 and OWNER.OWNER_NUM = PROPERTY.OWNER_NUM
 
------ Comparing data in one table
+----- Comparing data in one table using major and minor sort keys
 select P1.PROPERTY_ID, P2.PROPERTY_ID, P1.BDRMS
 
 from PROPERTY P1, PROPERTY P2
