@@ -179,3 +179,12 @@ where CATEGORY in
   having count(*) = 2
 )
 order by CATEGORY;
+
+----- Select via various tables
+select INVOICES.INVOICE_NUM, INVOICES.INVOICE_DATE
+from INVOICES
+join INVOICE_LINE on INVOICE_LINE.INVOICE_NUM = INVOICES.INVOICE_NUM
+join ITEM on ITEM.ITEM_ID = INVOICE_LINE.ITEM_ID
+join CUSTOMER on CUSTOMER.CUST_ID = INVOICES.CUST_ID
+where DESCRIPTION like 'Wild Bird Food%'
+or FIRST_NAME = 'James' and LAST_NAME = 'Gonzalez'
