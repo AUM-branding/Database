@@ -198,3 +198,8 @@ where PRICE > all
   from ITEM
   where CATEGORY in ('CAT')
 )
+
+----- Select all items with constraints and also list which invoices have them
+select ITEM.ITEM_ID, DESCRIPTION, ON_HAND, INVOICE_NUM, QUANTITY
+from ITEM
+left join INVOICE_LINE on ITEM.ITEM_ID = INVOICE_LINE.ITEM_ID
