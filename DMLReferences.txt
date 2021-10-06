@@ -5,6 +5,7 @@ describe CUSTOMER;
 describe INVOICES;
 describe ITEM;
 
+Allow more flexible grouping
 SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
 /*
