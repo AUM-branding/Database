@@ -220,3 +220,11 @@ where exists(
   and BDRMS = 2
 )
 and OWNER.OWNER_NUM = PROPERTY.OWNER_NUM
+
+----- Comparing data in one table
+select P1.PROPERTY_ID, P2.PROPERTY_ID, P1.BDRMS
+
+from PROPERTY P1, PROPERTY P2
+
+where P1.BDRMS = P2.BDRMS
+order by P1.PROPERTY_ID asc, P2.PROPERTY_ID;
