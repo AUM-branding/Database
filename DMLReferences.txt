@@ -209,3 +209,14 @@ select FIRST_NAME, LAST_NAME
 from PROPERTY, OWNER
 where OWNER.OWNER_NUM = PROPERTY.OWNER_NUM
 and BDRMS = 2
+
+----- Alternate text for selects keeping the join conditions towards the bottom of a query
+select FIRST_NAME, LAST_NAME
+from PROPERTY, OWNER
+where exists(
+  select *
+  from PROPERTY
+  where OWNER.OWNER_NUM = PROPERTY.OWNER_NUM
+  and BDRMS = 2
+)
+and OWNER.OWNER_NUM = PROPERTY.OWNER_NUM
