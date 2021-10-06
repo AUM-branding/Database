@@ -188,3 +188,14 @@ join ITEM on ITEM.ITEM_ID = INVOICE_LINE.ITEM_ID
 join CUSTOMER on CUSTOMER.CUST_ID = INVOICES.CUST_ID
 where DESCRIPTION like 'Wild Bird Food%'
 or FIRST_NAME = 'James' and LAST_NAME = 'Gonzalez'
+
+----- Select items with prices higher than a certain category of various prices
+      (could be more efficient using a max aggregate)
+select ITEM_ID, DESCRIPTION, PRICE, CATEGORY
+from ITEM
+where PRICE > all
+(
+  select PRICE
+  from ITEM
+  where CATEGORY in ('CAT')
+)
