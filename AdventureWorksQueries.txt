@@ -30,9 +30,23 @@ go
 ** Select data for products with the product category name of "Shorts"
 **/
 
+USE AdventureWorks2019; 
+
 select *
 from Production.ProductSubcategory
 full outer join Production.Product on Production.Product.ProductSubcategoryID = Production.ProductSubcategory.ProductSubcategoryID
 full outer join Production.ProductModel on Production.Product.ProductModelID = Production.ProductModel.ProductModelID
 full outer join Production.UnitMeasure on Production.Product.SizeUnitMeasureCode = Production.UnitMeasure.UnitMeasureCode and Production.Product.WeightUnitMeasureCode = Production.UnitMeasure.UnitMeasureCode
 where Production.ProductSubcategory.Name = 'Shorts'
+
+/*
+** Select sales person information for the highest grossing sales person
+**/
+
+USE AdventureWorks2019; 
+
+select Person.Address.AddressLine1, Person.Address.AddressLine2, Person.Address.AddressLine2, Person.Address.City, Person.Address.StateProvinceID, Person.Address.PostalCode
+from Person.Address
+join Person.BusinessEntityAddress on Person.BusinessEntityAddress.AddressID = Person.Address.AddressID
+join Sales.SalesPerson on Sales.SalesPerson.BusinessEntityID = Person.BusinessEntityAddress.BusinessEntityID
+	where SalesYTD = (select max(SalesYTD) from Sales.SalesPerson)
