@@ -10,7 +10,7 @@ describe ITEM;
 SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
 ----- View table data (SQL)
-exec sp_columns ProductSubcategory
+exec sp_columns "table"
 
 /*
 Various selects:
