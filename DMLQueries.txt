@@ -1,12 +1,16 @@
 use Redacted
 show tables;
 
+----- View table data SQL Plus:
 describe CUSTOMER;
 describe INVOICES;
 describe ITEM;
 
 ----- Allow more flexible grouping
 SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
+----- View table data (SQL)
+exec sp_columns ProductSubcategory
 
 /*
 Various selects:
