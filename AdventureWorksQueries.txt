@@ -1,4 +1,35 @@
------ Select data for products with the product category name of "Shorts"
+/*
+** Create a table with constraints
+**/
+
+USE AdventureWorks2019; 
+
+create table Sales.Giveaways (
+
+GiveawaysID int identity(1,1) not null,
+ProductName varchar(25) not null,
+ProductValue decimal(10,2) not null,
+BusinessEntityID int not null,
+BeginDate date null,
+EndDate date null,
+TerritoryID int not null,
+
+-- Data:
+constraint EndDate check (EndDate > BeginDate),
+
+-- Keys:
+constraint Giveaways_PK PRIMARY KEY(GiveawaysID),
+constraint BusinessEntityID_FK FOREIGN KEY(BusinessEntityID) references Sales.SalesPerson(BusinessEntityID),
+constraint TerritoryID_FK FOREIGN KEY(TerritoryID) references Sales.SalesTerritory(TerritoryID),
+
+);
+
+go
+
+/*
+** Select data for products with the product category name of "Shorts"
+**/
+
 select *
 from Production.ProductSubcategory
 full outer join Production.Product on Production.Product.ProductSubcategoryID = Production.ProductSubcategory.ProductSubcategoryID
