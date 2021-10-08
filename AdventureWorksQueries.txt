@@ -1,0 +1,7 @@
+----- Select data for products with the product category name of "Shorts"
+select *
+from Production.ProductSubcategory
+full outer join Production.Product on Production.Product.ProductSubcategoryID = Production.ProductSubcategory.ProductSubcategoryID
+full outer join Production.ProductModel on Production.Product.ProductModelID = Production.ProductModel.ProductModelID
+full outer join Production.UnitMeasure on Production.Product.SizeUnitMeasureCode = Production.UnitMeasure.UnitMeasureCode and Production.Product.WeightUnitMeasureCode = Production.UnitMeasure.UnitMeasureCode
+where Production.ProductSubcategory.Name = 'Shorts'
