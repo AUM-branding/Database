@@ -50,3 +50,16 @@ from Person.Address
 join Person.BusinessEntityAddress on Person.BusinessEntityAddress.AddressID = Person.Address.AddressID
 join Sales.SalesPerson on Sales.SalesPerson.BusinessEntityID = Person.BusinessEntityAddress.BusinessEntityID
 	where SalesYTD = (select max(SalesYTD) from Sales.SalesPerson)
+
+==
+Selects data relevant to the highest paid employee in the database
+==
+
+select Person.Person.FirstName, Person.Person.MiddleName, Person.Person.LastName, HumanResources.Employee.BirthDate, HumanResources.Employee.JobTitle, HumanResources.EmployeePayHistory.Rate
+from HumanResources.Employee, HumanResources.EmployeePayHistory, Person.Person
+where HumanResources.Employee.BusinessEntityID = HumanResources.EmployeePayHistory.BusinessEntityID
+and HumanResources.Employee.BusinessEntityID = Person.Person.BusinessEntityID
+and HumanResources.EmployeePayHistory.Rate =
+(
+	select max(HumanResources.EmployeePayHistory.Rate) from HumanResources.EmployeePayHistory
+);
