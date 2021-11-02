@@ -1,4 +1,12 @@
 ****************
+update as spread
+use KimTay
+
+update NONCAT
+set PRICE = PRICE * 1.05
+where CATEGORY = 'BRD'
+
+****************
 insert from other table
 use KimTay
 
