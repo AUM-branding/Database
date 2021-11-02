@@ -28,6 +28,13 @@ from ITEM
 where ITEM.CATEGORY != 'CAT'
 
 ****************
+change datatype size
+use KimTay
+
+alter table NONCAT
+modify DESCRIPTION char(40);
+
+****************
 insert standard
 use KimTay
 
