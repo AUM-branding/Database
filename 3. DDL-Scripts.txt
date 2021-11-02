@@ -21,6 +21,14 @@ create table NONCAT
 );
 
 ****************
+update standard
+use KimTay
+
+update NONCAT
+set DESCRIPTION = 'Dog Toy Gift Bonanza.'
+where ITEM_ID = 'DT12'
+
+****************
 create table
 USE AdventureWorks2019; 
 
