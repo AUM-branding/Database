@@ -44,6 +44,13 @@ set DESCRIPTION = 'Dog Toy Gift Bonanza.'
 where ITEM_ID = 'DT12'
 
 ****************
+delete standard
+use KimTay
+
+delete from NONCAT
+where CATEGORY = 'HOR'
+
+****************
 create table
 USE AdventureWorks2019; 
 
