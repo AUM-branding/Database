@@ -1,4 +1,5 @@
-****************
+****************************************************************
+
 add column and update
 use KimTay
 
@@ -10,7 +11,8 @@ update NONCAT
 set ON_HAND_VALUE = ON_HAND * PRICE;
 go
 
-****************
+****************************************************************
+
 update as spread
 use KimTay
 
@@ -18,7 +20,8 @@ update NONCAT
 set PRICE = PRICE * 1.05
 where CATEGORY = 'BRD'
 
-****************
+****************************************************************
+
 insert from other table
 use StayWell
 
@@ -30,7 +33,8 @@ select OFFICE_NUM, ADDRESS, BDRMS, FLOORS, MONTHLY_RENT, OWNER_NUM
 from PROPERTY
 where SQR_FT > 1500
 
-****************
+****************************************************************
+
 insert from other table
 use KimTay
 
@@ -39,14 +43,16 @@ select ITEM_ID, DESCRIPTION, ON_HAND, CATEGORY, PRICE
 from ITEM
 where ITEM.CATEGORY != 'CAT'
 
-****************
+****************************************************************
+
 change datatype size
 use KimTay
 
 alter table NONCAT
 modify DESCRIPTION char(40);
 
-****************
+****************************************************************
+
 create composite
 use StayWell
 create table LARGE_PROPERTY
@@ -59,7 +65,8 @@ create table LARGE_PROPERTY
   OWNER_NUM char(5) null
 )
 
-****************
+****************************************************************
+
 create standard
 use KimTay
 
@@ -72,14 +79,16 @@ create table NONCAT
   PRICE decimal(5,2) null
 );
 
-****************
+****************************************************************
+
 quick insert
 use KimTay
 
 insert into NONCAT
 values ('FF17', 'Premium Fish Food', 10, 'FSH', 11.95)
 
-****************
+****************************************************************
+
 update standard
 use KimTay
 
@@ -87,7 +96,8 @@ update NONCAT
 set DESCRIPTION = 'Dog Toy Gift Bonanza.'
 where ITEM_ID = 'DT12'
 
-****************
+****************************************************************
+
 update standard
 use KimTay
 
@@ -95,14 +105,16 @@ update NONCAT
 set CATEGORY = null
 where ITEM_ID = 'UF39'
 
-****************
+****************************************************************
+
 delete standard
 use KimTay
 
 delete from NONCAT
 where CATEGORY = 'HOR'
 
-****************
+****************************************************************
+
 create table
 USE AdventureWorks2019; 
 
