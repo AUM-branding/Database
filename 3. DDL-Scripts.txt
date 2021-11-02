@@ -1,6 +1,16 @@
-/*
-** Create a table with constraints
-**/
+****************
+
+use KimTay
+create table NONCAT
+(
+  ITEM_ID char(4) not null, constraint NONCAT_PK primary key(ITEM_ID),
+  DESCRIPTION char(30) null,
+  ON_HAND int null,
+  CATEGORY char(3) null,
+  PRICE decimal(5,2) null
+);
+
+****************
 
 USE AdventureWorks2019; 
 
