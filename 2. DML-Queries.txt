@@ -31,6 +31,15 @@ exec sp_columns "table"
 
 ****************************************************************
 
+use StayWell
+
+select a.*, b.*
+from SERVICE_REQUEST a, SERVICE_REQUEST b
+where a.PROPERTY_ID = b.PROPERTY_ID
+and a.NEXT_SERVICE_DATE != b.NEXT_SERVICE_DATE
+
+****************************************************************
+
 using an alias to gather data from one table on a join
 
 select OWNER.*
