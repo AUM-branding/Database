@@ -20,6 +20,18 @@ where CATEGORY = 'BRD'
 
 ****************
 insert from other table
+use StayWell
+
+insert into LARGE_PROPERTY
+(
+  OFFICE_NUM, ADDRESS, BDRMS, FLOORS, MONTHLY_RENT, OWNER_NUM
+) 
+select OFFICE_NUM, ADDRESS, BDRMS, FLOORS, MONTHLY_RENT, OWNER_NUM
+from PROPERTY
+where SQR_FT > 1500
+
+****************
+insert from other table
 use KimTay
 
 insert into NONCAT (ITEM_ID, DESCRIPTION, ON_HAND, CATEGORY, PRICE)
