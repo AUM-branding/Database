@@ -44,6 +44,14 @@ set DESCRIPTION = 'Dog Toy Gift Bonanza.'
 where ITEM_ID = 'DT12'
 
 ****************
+update standard
+use KimTay
+
+update NONCAT
+set CATEGORY = null
+where ITEM_ID = 'UF39'
+
+****************
 delete standard
 use KimTay
 
