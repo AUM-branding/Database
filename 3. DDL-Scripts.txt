@@ -1,4 +1,16 @@
 ****************
+add column and update
+use KimTay
+
+alter table NONCAT
+add ON_HAND_VALUE decimal(7,2);
+go
+
+update NONCAT
+set ON_HAND_VALUE = ON_HAND * PRICE;
+go
+
+****************
 update as spread
 use KimTay
 
