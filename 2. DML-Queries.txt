@@ -33,6 +33,15 @@ exec sp_columns "table"
 
 use StayWell
 
+select SERVICE_REQUEST.PROPERTY_ID, PROPERTY.ADDRESS
+from SERVICE_REQUEST
+join PROPERTY on SERVICE_REQUEST.PROPERTY_ID = PROPERTY.PROPERTY_ID
+where CATEGORY_NUMBER = 1
+
+****************************************************************
+
+use StayWell
+
 select FIRST_NAME, LAST_NAME, PROPERTY.ADDRESS
 from OWNER
 join PROPERTY on OWNER.OWNER_NUM = PROPERTY.OWNER_NUM
