@@ -49,6 +49,14 @@ where SQR_FT > 2000
 
 ****************************************************************
 
+combine selects into one column
+
+select concat(FIRST_NAME , SURNAME) as PARTICIPANT from RESIDENTS
+union
+select concat(FIRST_NAME , LAST_NAME) as PARTICIPANT from OWNER
+
+****************************************************************
+
 use StayWell
 
 select SERVICE_REQUEST.PROPERTY_ID, PROPERTY.ADDRESS
