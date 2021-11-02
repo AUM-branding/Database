@@ -35,7 +35,7 @@ alter table NONCAT
 modify DESCRIPTION char(40);
 
 ****************
-insert standard
+create standard
 use KimTay
 
 create table NONCAT
