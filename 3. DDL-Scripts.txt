@@ -1,5 +1,24 @@
 ****************************************************************
 
+• mysql transaction
+
+use StayWell
+
+start transaction;
+
+insert into PROPERTY
+values
+(
+  14, 1, '9 Houston Drive', 1100, 2, 1, null, 'MO100'
+),
+(
+  15, 1, '11 Village Drive', 1300, 3, 1, null, 'CO103'
+);
+
+rollback;
+
+****************************************************************
+
 • add column and update
 
 use StayWell
