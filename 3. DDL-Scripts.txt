@@ -1,6 +1,21 @@
 ****************************************************************
 
 add column and update
+
+use StayWell
+
+alter table LARGE_PROPERTY
+add OCCUPIED char(1);
+go
+
+update LARGE_PROPERTY
+set OCCUPIED = 'Y';
+go
+
+****************************************************************
+
+add column and update
+
 use KimTay
 
 alter table NONCAT
@@ -14,6 +29,7 @@ go
 ****************************************************************
 
 update as spread
+
 use KimTay
 
 update NONCAT
@@ -23,6 +39,7 @@ where CATEGORY = 'BRD'
 ****************************************************************
 
 insert from other table
+
 use StayWell
 
 insert into LARGE_PROPERTY
@@ -36,6 +53,7 @@ where SQR_FT > 1500
 ****************************************************************
 
 insert from other table
+
 use KimTay
 
 insert into NONCAT (ITEM_ID, DESCRIPTION, ON_HAND, CATEGORY, PRICE)
@@ -46,6 +64,7 @@ where ITEM.CATEGORY != 'CAT'
 ****************************************************************
 
 change datatype size
+
 use KimTay
 
 alter table NONCAT
@@ -54,7 +73,9 @@ modify DESCRIPTION char(40);
 ****************************************************************
 
 create composite
+
 use StayWell
+
 create table LARGE_PROPERTY
 (
   OFFICE_NUM decimal(2,0) not null,
@@ -68,6 +89,7 @@ create table LARGE_PROPERTY
 ****************************************************************
 
 create standard
+
 use KimTay
 
 create table NONCAT
@@ -82,6 +104,7 @@ create table NONCAT
 ****************************************************************
 
 quick insert
+
 use KimTay
 
 insert into NONCAT
@@ -90,6 +113,7 @@ values ('FF17', 'Premium Fish Food', 10, 'FSH', 11.95)
 ****************************************************************
 
 update standard
+
 use KimTay
 
 update NONCAT
@@ -99,6 +123,7 @@ where ITEM_ID = 'DT12'
 ****************************************************************
 
 update standard
+
 use KimTay
 
 update NONCAT
@@ -108,6 +133,7 @@ where ITEM_ID = 'UF39'
 ****************************************************************
 
 delete standard
+
 use KimTay
 
 delete from NONCAT
@@ -116,6 +142,7 @@ where CATEGORY = 'HOR'
 ****************************************************************
 
 create table
+
 USE AdventureWorks2019; 
 
 create table Sales.Giveaways (
