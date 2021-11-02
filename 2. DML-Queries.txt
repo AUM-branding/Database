@@ -31,6 +31,15 @@ exec sp_columns "table"
 
 ****************************************************************
 
+using an alias to gather data from one table on a join
+
+select OWNER.*
+from OWNER
+join PROPERTY on OWNER.OWNER_NUM = PROPERTY.OWNER_NUM
+where SQR_FT > 2000
+
+****************************************************************
+
 use StayWell
 
 select SERVICE_REQUEST.PROPERTY_ID, PROPERTY.ADDRESS
