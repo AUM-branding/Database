@@ -29,6 +29,13 @@ create table NONCAT
 );
 
 ****************
+quick insert
+use KimTay
+
+insert into NONCAT
+values ('FF17', 'Premium Fish Food', 10, 'FSH', 11.95)
+
+****************
 update standard
 use KimTay
 
