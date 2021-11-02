@@ -1,20 +1,44 @@
-use Redacted
+****************************************************************
+
+use X
 show tables;
 
------ View table data SQL Plus:
+****************************************************************
+
+view table data (SQL Plus)
+
 describe CUSTOMER;
 describe INVOICES;
 describe ITEM;
 
------ Allow more flexible grouping
+****************************************************************
+
+Allow more flexible grouping
+
 SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
------ View table data (SQL)
+****************************************************************
+
+View table data (SQL)
+
 exec sp_columns "table"
 
-/*
-Various selects:
-*/
+****************************************************************
+
+/****************
+ SELECT/JOIN
+****************/
+
+****************************************************************
+
+use StayWell
+
+select FIRST_NAME, LAST_NAME, PROPERTY.ADDRESS
+from OWNER
+join PROPERTY on OWNER.OWNER_NUM = PROPERTY.OWNER_NUM
+group by PROPERTY.ADDRESS
+
+****************************************************************
 
 ----- Select a certain item
 select ITEM_ID, DESCRIPTION, PRICE from ITEM;
