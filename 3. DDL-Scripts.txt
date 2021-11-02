@@ -35,6 +35,19 @@ alter table NONCAT
 modify DESCRIPTION char(40);
 
 ****************
+create composite
+use StayWell
+create table LARGE_PROPERTY
+(
+  OFFICE_NUM decimal(2,0) not null,
+  ADDRESS char(25) not null, constraint LARGE_PROPERTY_PK primary key(OFFICE_NUM, ADDRESS),
+  BDRMS decimal(2,0) null,
+  FLOORS decimal(2,0) null,
+  MONTHLY_RENT decimal(6,2) null,
+  OWNER_NUM char(5) null
+)
+
+****************
 create standard
 use KimTay
 
