@@ -19,7 +19,35 @@ rollback;
 
 ****************************************************************
 
+• mysql view
+
+use KimTay
+
+create view INVOICE_TOTAL
+as
+select INVOICES.INVOICE_NUM, sum((QUANTITY * INVOICE_LINE.QUOTED_PRICE)) as TOTAL_AMOUNT
+from INVOICES, INVOICE_LINE
+where INVOICES.INVOICE_NUM = INVOICE_LINE.INVOICE_NUM
+group by INVOICE_NUM
+
+****************************************************************
+
+• mysql view
+
+use KimTay
+
+create view ITEM_INVOICE
+as
+select ITEM.ITEM_ID, DESCRIPTION, ITEM.PRICE, INVOICES.INVOICE_NUM, INVOICE_DATE, INVOICE_LINE.QUANTITY, QUOTED_PRICE
+from INVOICES, INVOICE_LINE, ITEM
+where INVOICES.INVOICE_NUM = INVOICE_LINE.INVOICE_NUM
+and INVOICE_LINE.ITEM_ID = ITEM.ITEM_ID
+
+****************************************************************
+
 • mysql view (use alter to update/change it)
+
+use KimTay
 
 create view MAJOR_CUSTOMER
 as

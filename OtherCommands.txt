@@ -1,2 +1,25 @@
-"use" [x] "show" [tables] shows the tables in a database
-"describe" [table] lists table elements
+****************************************************************
+
+flexible group by configuration
+
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
+****************************************************************
+
+use [x] use database
+show tables shows tables
+describe [table] lists table design
+
+****************************************************************
+
+view table design SQL Plus
+
+describe CUSTOMER;
+describe INVOICES;
+describe ITEM;
+
+****************************************************************
+
+view table design SQL
+
+exec sp_columns "table"

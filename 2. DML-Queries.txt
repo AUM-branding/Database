@@ -1,35 +1,22 @@
-****************************************************************
-
-use X
-show tables;
-
-****************************************************************
-
-view table data (SQL Plus)
-
-describe CUSTOMER;
-describe INVOICES;
-describe ITEM;
-
-****************************************************************
-
-Allow more flexible grouping
-
-SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
-
-****************************************************************
-
-View table data (SQL)
-
-exec sp_columns "table"
-
-****************************************************************
-
 /****************
  SELECT/JOIN
 ****************/
 
 ****************************************************************
+
+select where having
+
+use KimTay
+
+select INVOICES.INVOICE_NUM, sum((QUANTITY * INVOICE_LINE.QUOTED_PRICE)) as TOTAL
+from INVOICES, INVOICE_LINE
+where INVOICES.INVOICE_NUM = INVOICE_LINE.INVOICE_NUM
+group by INVOICE_NUM
+having sum(QUANTITY * INVOICE_LINE.QUOTED_PRICE) > 250
+
+****************************************************************
+
+using an alias two tables
 
 use StayWell
 
@@ -42,6 +29,8 @@ and a.NEXT_SERVICE_DATE != b.NEXT_SERVICE_DATE
 
 using an alias to gather data from one table on a join
 
+use StayWell
+
 select OWNER.*
 from OWNER
 join PROPERTY on OWNER.OWNER_NUM = PROPERTY.OWNER_NUM
@@ -51,11 +40,15 @@ where SQR_FT > 2000
 
 combine selects into one column
 
+use StayWell
+
 select concat(FIRST_NAME , SURNAME) as PARTICIPANT from RESIDENTS
 union
 select concat(FIRST_NAME , LAST_NAME) as PARTICIPANT from OWNER
 
 ****************************************************************
+
+select specific items
 
 use StayWell
 
@@ -65,6 +58,8 @@ join PROPERTY on SERVICE_REQUEST.PROPERTY_ID = PROPERTY.PROPERTY_ID
 where CATEGORY_NUMBER = 1
 
 ****************************************************************
+
+select specific items
 
 use StayWell
 
