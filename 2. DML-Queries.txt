@@ -4,7 +4,7 @@
 
 ****************************************************************
 
-select where having
+• select where having
 
 use KimTay
 
@@ -16,7 +16,7 @@ having sum(QUANTITY * INVOICE_LINE.QUOTED_PRICE) > 250
 
 ****************************************************************
 
-using an alias two tables
+• using an alias two tables
 
 use StayWell
 
@@ -27,7 +27,7 @@ and a.NEXT_SERVICE_DATE != b.NEXT_SERVICE_DATE
 
 ****************************************************************
 
-using an alias to gather data from one table on a join
+• using an alias to gather data from one table on a join
 
 use StayWell
 
@@ -38,7 +38,7 @@ where SQR_FT > 2000
 
 ****************************************************************
 
-combine selects into one column
+• combine selects into one column
 
 use StayWell
 
@@ -48,7 +48,7 @@ select concat(FIRST_NAME , LAST_NAME) as PARTICIPANT from OWNER
 
 ****************************************************************
 
-select specific items
+• select specific items
 
 use StayWell
 
@@ -59,7 +59,7 @@ where CATEGORY_NUMBER = 1
 
 ****************************************************************
 
-select specific items
+• select specific items
 
 use StayWell
 

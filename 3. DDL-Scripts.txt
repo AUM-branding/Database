@@ -1,5 +1,36 @@
 ****************************************************************
 
+• alter-add a foreign key
+
+use KimTay
+
+alter table INVOICE_LINE
+add foreign key(INVOICE_NUM) references INVOICES(INVOICE_NUM)
+
+****************************************************************
+
+• drop an index
+
+drop index ITEM_INDEX3 on ITEM
+
+****************************************************************
+
+•  create index with an order by clause
+
+use KimTay
+
+create index ITEM_INDEX4 on ITEM(CATEGORY desc, LOCATION)
+
+****************************************************************
+
+• create index
+
+use KimTay
+
+create index ITEM_INDEX1 on INVOICE_LINE(ITEM_ID)
+
+****************************************************************
+
 • mysql transaction
 
 use StayWell
@@ -33,7 +64,7 @@ go
 
 ****************************************************************
 
-• add column and update
+• alter-add column and update
 
 use KimTay
 
@@ -82,7 +113,7 @@ where ITEM.CATEGORY != 'CAT'
 
 ****************************************************************
 
-• change datatype size
+• alter datatype size
 
 use KimTay
 

@@ -6,6 +6,48 @@ SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
 ****************************************************************
 
+information from columns
+
+select * from INFORMATION_SCHEMA.COLUMNS
+where TABLE_SCHEMA = 'KimTay' and TABLE_NAME = 'ITEM'
+
+****************************************************************
+
+schema data for all databases of a type
+
+select TABLE_SCHEMA, TABLE_NAME, TABLE_TYPE from INFORMATION_SCHEMA.TABLES
+where TABLE_TYPE = 'BASE TABLE'
+
+****************************************************************
+
+example use
+
+use KimTay
+
+select TABLE_SCHEMA, TABLE_NAME, TABLE_TYPE from INFORMATION_SCHEMA.TABLES
+where TABLE_TYPE = 'BASE TABLE'
+and TABLE_SCHEMA = 'KimTay'
+
+****************************************************************
+
+main schemas
+
+select * from SYSTABLES
+
+****************************************************************
+
+main schemas
+
+select * from SYSCOLUMNS
+
+****************************************************************
+
+main schemas
+
+SELECT * FROM SYSVIEW
+
+****************************************************************
+
 use [x] use database
 show tables shows tables
 describe [table] lists table design
