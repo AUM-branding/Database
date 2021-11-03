@@ -1,0 +1,28 @@
+****************************************************************
+
+• mysql transaction
+
+use StayWell
+
+start transaction;
+
+insert into PROPERTY
+values
+(
+  14, 1, '9 Houston Drive', 1100, 2, 1, null, 'MO100'
+),
+(
+  15, 1, '11 Village Drive', 1300, 3, 1, null, 'CO103'
+);
+
+rollback;
+
+****************************************************************
+
+• mysql view (use alter to update/change it)
+
+create view MAJOR_CUSTOMER
+as
+select CUST_ID, FIRST_NAME, LAST_NAME, BALANCE, CREDIT_LIMIT, REP_ID
+from CUSTOMER
+where CREDIT_LIMIT <= 500
