@@ -2,6 +2,15 @@
 
 • alter-add a foreign key
 
+use StayWell
+
+alter table PROPERTY
+add foreign key (OWNER_NUM) references OWNER(OWNER_NUM)
+
+****************************************************************
+
+• alter-add a foreign key
+
 use KimTay
 
 alter table INVOICE_LINE
@@ -10,6 +19,16 @@ add foreign key(INVOICE_NUM) references INVOICES(INVOICE_NUM)
 ****************************************************************
 
 • drop an index
+
+use StayWell
+
+drop index OWNER_INDEX3 on OWNER
+
+****************************************************************
+
+• drop an index
+
+use KimTay
 
 drop index ITEM_INDEX3 on ITEM
 
@@ -23,11 +42,27 @@ create index ITEM_INDEX4 on ITEM(CATEGORY desc, LOCATION)
 
 ****************************************************************
 
+•  create index with an order by clause
+
+use StayWell
+
+create index OWNER_INDEX3 on OWNER(STATE desc, CITY)
+
+****************************************************************
+
 • create index
 
 use KimTay
 
 create index ITEM_INDEX1 on INVOICE_LINE(ITEM_ID)
+
+****************************************************************
+
+• create index
+
+use StayWell
+
+create index OWNER_INDEX1 on OWNER(STATE)
 
 ****************************************************************
 
