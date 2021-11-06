@@ -1,6 +1,50 @@
 ****************************************************************
 
-• Insert a row into a table
+• MySQL delete an invoice
+
+use KimTay
+
+delimiter //
+create procedure DELETE_INVOICE
+(
+  in I_INVOICE_NUM char(5)
+)
+
+begin
+
+  delete from INVOICES
+  where INVOICE_NUM = I_INVOICE_NUM;
+
+end //
+
+delimiter ;
+
+****************************************************************
+
+• MySQL update an invoice
+
+use KimTay
+
+delimiter //
+create procedure UPDATE_INVOICE
+(
+  in I_INVOICE_NUM char(5),
+  in I_INVOICE_DATE date
+)
+
+begin
+
+  update INVOICES
+  set INVOICE_DATE = I_INVOICE_DATE
+  where INVOICE_NUM = I_INVOICE_NUM;
+
+end //
+
+delimiter ;
+
+****************************************************************
+
+• MySQL insert a row into a table
 
 use KimTay
 
@@ -21,10 +65,62 @@ end //
 
 delimiter ;
 
+****************************************************************
+
+• MySQL get data using a property number
+
+use StayWell
+
+delimiter //
+create procedure DISPLAY_PROPERTY_OWNER
+(
+  in I_PROPERTY_ID char(5)
+)
+
+begin
+
+  declare I_LOCATION_NUM tinyint;
+  declare I_ADDRESS varchar(100);
+  declare I_OWNER_NUM char(5);
+  declare I_FIRST_NAME varchar(20);
+  declare I_LAST_NAME varchar(20);
+
+  select
+  OFFICE_NUM into I_LOCATION_NUM
+  from PROPERTY
+  where PROPERTY_ID = I_PROPERTY_ID;
+
+  select
+  ADDRESS into I_ADDRESS
+  from PROPERTY
+  where PROPERTY_ID = I_PROPERTY_ID;
+
+  select
+  OWNER_NUM into I_OWNER_NUM
+  from PROPERTY
+  where PROPERTY_ID = I_PROPERTY_ID;
+  
+  select
+  FIRST_NAME into I_FIRST_NAME
+  from PROPERTY, OWNER
+  where PROPERTY_ID = I_PROPERTY_ID
+  and PROPERTY.OWNER_NUM = OWNER.OWNER_NUM;
+
+  select
+  LAST_NAME into I_LAST_NAME
+  from PROPERTY, OWNER
+  where PROPERTY_ID = I_PROPERTY_ID
+  and PROPERTY.OWNER_NUM = OWNER.OWNER_NUM;
+
+select I_LOCATION_NUM, I_ADDRESS, I_OWNER_NUM, I_FIRST_NAME, I_LAST_NAME;
+
+end //
+
+delimiter ;
 
 ****************************************************************
 
-• Get data using an invoice number
+• MySQL get data using an invoice number
 
 use KimTay
 
@@ -63,7 +159,38 @@ delimiter ;
 
 ****************************************************************
 
-• Get data using a customer's id number
+• MySQL get data using an owner's number
+
+use StayWell
+
+delimiter //
+create procedure DISPLAY_OWNER
+(
+  in I_OWNER_NUM char(5)
+)
+
+begin
+
+  declare I_FIRST_NAME varchar(20);
+  declare I_LAST_NAME varchar(20);
+
+  select FIRST_NAME into I_FIRST_NAME
+  from OWNER
+  where I_OWNER_NUM = OWNER_NUM;
+
+  select LAST_NAME into I_LAST_NAME
+  from OWNER
+  where I_OWNER_NUM = OWNER_NUM;
+
+select I_OWNER_NUM, I_FIRST_NAME, I_LAST_NAME;
+
+end //
+
+delimiter ;
+
+****************************************************************
+
+• MySQL get data using a customer's id number
 
 use KimTay
 

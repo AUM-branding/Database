@@ -1,8 +1,17 @@
-/****************
- SELECT/JOIN
-****************/
+****************************************************************
+select/join:
+****************************************************************
 
-• select with date_add for mysql
+• MySQL select with date_add for mysql
+
+select PROPERTY.OFFICE_NUM, PROPERTY.ADDRESS, PROPERTY.OWNER_NUM, OWNER.LAST_NAME, PROPERTY.MONTHLY_RENT,
+       round(MONTHLY_RENT * .0175) as DISCOUNT
+from PROPERTY, OWNER
+  where OWNER.OWNER_NUM = PROPERTY.OWNER_NUM
+
+****************************************************************
+
+• MySQL select with date_add for mysql
 
 use KimTay
 
@@ -13,7 +22,7 @@ join CUSTOMER on INVOICES.CUST_ID = CUSTOMER.CUST_ID
 
 ****************************************************************
 
-• select where having
+• MySQL select where having
 
 use KimTay
 
@@ -25,7 +34,7 @@ having sum(QUANTITY * INVOICE_LINE.QUOTED_PRICE) > 250
 
 ****************************************************************
 
-• using an alias two tables
+• MySQL using an alias two tables
 
 use StayWell
 
@@ -36,7 +45,7 @@ and a.NEXT_SERVICE_DATE != b.NEXT_SERVICE_DATE
 
 ****************************************************************
 
-• using an alias to gather data from one table on a join
+• MySQL using an alias to gather data from one table on a join
 
 use StayWell
 
@@ -47,7 +56,7 @@ where SQR_FT > 2000
 
 ****************************************************************
 
-• combine selects into one column
+• MySQL combine selects into one column
 
 use StayWell
 
@@ -57,7 +66,7 @@ select concat(FIRST_NAME , LAST_NAME) as PARTICIPANT from OWNER
 
 ****************************************************************
 
-• select specific items
+• MySQL select specific items
 
 use StayWell
 
@@ -68,7 +77,7 @@ where CATEGORY_NUMBER = 1
 
 ****************************************************************
 
-• select specific items
+• MySQL select specific items
 
 use StayWell
 
