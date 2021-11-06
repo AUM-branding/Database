@@ -2,6 +2,15 @@
  SELECT/JOIN
 ****************/
 
+• select with date_add for mysql
+
+use KimTay
+
+select INVOICE_NUM, CUSTOMER.CUST_ID, FIRST_NAME, LAST_NAME, INVOICE_DATE,
+       date_add(INVOICE_DATE, interval 20 day) as PROMOTION_DATE
+from INVOICES
+join CUSTOMER on INVOICES.CUST_ID = CUSTOMER.CUST_ID
+
 ****************************************************************
 
 • select where having

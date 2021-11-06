@@ -1,0 +1,94 @@
+****************************************************************
+
+• Insert a row into a table
+
+use KimTay
+
+delimiter //
+create procedure ADD_INVOICE
+(
+  in I_INVOICE_NUM char(5),
+  in I_INVOICE_DATE date,
+  in I_CUST_ID char(3)
+)
+
+begin
+
+  insert into INVOICES
+  values (I_INVOICE_NUM, I_INVOICE_DATE, I_CUST_ID);
+
+end //
+
+delimiter ;
+
+
+****************************************************************
+
+• Get data using an invoice number
+
+use KimTay
+
+delimiter //
+create procedure GET_INVOICE_DATE (in I_INVOICE_NUM char(5))
+
+begin
+
+  declare I_CUST_ID char(3);
+  declare I_CUST_NAME varchar(41);
+  declare I_INVOICE_DATE date;
+
+  select
+  CUSTOMER.CUST_ID into I_CUST_ID
+  from CUSTOMER, INVOICES
+  where INVOICES.INVOICE_NUM = I_INVOICE_NUM
+  and CUSTOMER.CUST_ID = INVOICES.CUST_ID;
+
+  select
+  concat(CUSTOMER.FIRST_NAME, ' ', CUSTOMER.LAST_NAME) into I_CUST_NAME
+  from CUSTOMER, INVOICES
+  where INVOICES.INVOICE_NUM = I_INVOICE_NUM
+  and CUSTOMER.CUST_ID = INVOICES.CUST_ID;
+
+  select
+  INVOICE_DATE
+  into I_INVOICE_DATE
+  from INVOICES
+  where INVOICE_NUM = I_INVOICE_NUM;
+
+select I_CUST_ID, I_CUST_NAME, I_INVOICE_DATE;
+
+end //
+
+delimiter ;
+
+****************************************************************
+
+• Get data using a customer's id number
+
+use KimTay
+
+delimiter //
+create procedure GET_CREDIT_LIMIT (in I_CUST_ID char(3))
+
+begin
+
+declare I_CUSTOMER_NAME varchar(41);
+declare I_CREDIT_LIMIT decimal(7,2);
+
+  select
+  concat(FIRST_NAME, ' ', LAST_NAME) into I_CUSTOMER_NAME
+  from CUSTOMER
+  where CUST_ID = I_CUST_ID;
+
+  select
+  CREDIT_LIMIT into I_CREDIT_LIMIT
+  from CUSTOMER
+  where CUST_ID = I_CUST_ID;
+
+select I_CUSTOMER_NAME, I_CREDIT_LIMIT;
+
+end //
+
+delimiter ;
+
+****************************************************************
