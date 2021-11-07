@@ -1,0 +1,22 @@
+Critical_Thinking_1_Dee
+11-6-2021
+
+A data dictionary doesn’t need to just be an excel spreadsheet containing all the different datatypes for a database.
+Especially as the database grows it would be very helpful to begin to include additional details related to the 
+database that a newcomer can use to become acquainted to its intricacies. This begins to include detailed 
+information about the tables columns, administration rights, and views. The dictionary should show keys, and will 
+help to have details on what each key can link to for general review, or quick reference when accessing the database 
+from a terminal, or command line, or in the case that a management GUI is not sufficient to do the work. If I were 
+administering a database, I would keep a log location of backups, recent major changes, and a personal notes section 
+pertaining to how I prefer to navigate and access different aspects of the database, and the why’s and how’s of why I
+chose a specific method for a specific function. This ensures that all ends are tied properly, and keeps it in a 
+state of “futureproof” for anyone potentially joining the team to work on the same database.  This is crucial, 
+because a database in general is not really meant to be a personal thing. In nearly all outcomes, I would expect that
+you were hired for a role within the company, and that means that you must adhere to their needs. That includes 
+ensuring that the database will not suddenly become inoperable should you choose to leave the company for a new role 
+at a later point in time. The database is like the spine to most companies in this case, and this is why keeping 
+detailed outlines is so important. A good data dictionary maintains a great deal for the future of the company, and 
+for the programmer as well.
+
+I referenced the Adventure Works Database Data Dictionary:
+https://dataedo.com/download/AdventureWorks.pdf
