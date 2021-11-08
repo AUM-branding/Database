@@ -17,7 +17,8 @@ As
 	
 	Where
 	Sales.SalesOrderDetail.SalesOrderID = @SalesOrderID
-	and
+	
+	And
 	Sales.CurrencyRate.CurrencyRateDate = @DateOfSale
 
 Go
