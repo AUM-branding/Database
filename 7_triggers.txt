@@ -1,0 +1,61 @@
+****************************************************************
+
+• Mysql set a sales rep's commission on each customer deletion
+
+use KimTay
+
+delimiter //
+create trigger DEL_COMMISSION_TRIG
+after delete on CUSTOMER for each row
+
+begin
+
+  update SALES_REP
+  set COMMISSION = COMMISSION - (old.BALANCE * RATE)
+  where REP_ID = old.REP_ID;
+
+end //
+
+delimiter ;
+
+****************************************************************
+
+• Mysql set a sales rep's commission on each new customer insert
+
+use KimTay
+
+delimiter //
+create trigger ADD_COMMISSION_TRIG
+after insert on CUSTOMER for each row
+
+begin
+
+  update SALES_REP
+  set COMMISSION = COMMISSION + (new.BALANCE * RATE)
+  where REP_ID = new.REP_ID;
+
+end //
+
+delimiter ;
+
+****************************************************************
+
+• Mysql set a sales rep's commission on each new customer update
+
+use KimTay
+
+delimiter //
+create trigger UPD_COMMISSION_TRIG
+after update on CUSTOMER for each row
+
+begin
+
+  update SALES_REP
+  set COMMISSION = COMMISSION + ((new.BALANCE - old.BALANCE) * RATE)
+  where REP_ID = new.REP_ID;
+
+end //
+
+delimiter ;
+
+****************************************************************

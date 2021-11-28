@@ -1,0 +1,41 @@
+****************************************************************
+
+• mysql grant select
+
+GRANT SELECT ON PROPERTY TO OLIVER
+-
+GRANT SELECT ON PROPERTY TO ALL
+
+****************************************************************
+
+• mysql grant insert
+
+grant insert on PROPERTY to CRANDALL
+grant insert on PROPERTY to PEREZ
+grant insert on OWNER to CRANDALL
+grant insert on OWNER to PEREZ
+
+****************************************************************
+
+• mysql grant update
+
+grant update on PROPERTY to JOHNSON
+grant update on PROPERTY to KLEIN
+
+****************************************************************
+
+• mysql grant numerous
+
+grant insert, delete on SERVICE_CATEGORY to KLEIN
+
+****************************************************************
+
+• mysql grant index
+
+grant index on SERVICE_REQUEST to ADAMS
+
+****************************************************************
+
+• mysql revoke
+
+revoke all on PROPERTY from ADAMS
