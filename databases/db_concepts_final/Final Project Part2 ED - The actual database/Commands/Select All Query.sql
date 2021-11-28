@@ -1,1 +1,0 @@
-select ManufacturerName from Component where Component = '1AppendCompany1'
