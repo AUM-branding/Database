@@ -1,9 +1,9 @@
---	Use master
+	Use master
 
---	Alter database Olympics 
---Set single_user with rollback immediate
+	Alter database Olympics 
+Set single_user with rollback immediate
 	
---	Drop database if exists Olympics
+	Drop database if exists Olympics
 	
 	Create database Olympics
 	
@@ -31,7 +31,7 @@ Population int not null,
 	Create table Event_host_data (
 Id int identity (1, 1) not null, constraint Pk_event_host_id primary key (Id),
 Year smallint not null,
-City varchar (60) not null,
+City_id int not null, constraint Fk_event_host_data_city_id foreign key (City_id) references City (Id),
 Season varchar (10) not null
 )
 
@@ -124,18 +124,18 @@ Values
 ('USA', 'Lake Placid', 2346),
 ('GER', 'Garmisch', 26178)
 
-	Insert into Event_host_data (Year, City, Season)
+	Insert into Event_host_data (Year, City_id, Season)
 Values
-(1896, 'Athens', 'Summer'),
-(1900, 'Paris', 'Summer'),
-(1904, 'St Louis', 'Summer'),
-(1908, 'London', 'Summer'),
-(1912, 'Stockholm', 'Summer'),
-(1920, 'Antwerp', 'Summer'),
-(1924, 'Chamonix', 'Winter'),
-(1928, 'St.Moritz', 'Winter'),
-(1932, 'Lake Placid', 'Winter'),
-(1936, 'Garmisch', 'Winter')
+(1896, 1, 'Summer'),
+(1900, 2, 'Summer'),
+(1904, 3, 'Summer'),
+(1908, 4, 'Summer'),
+(1912, 5, 'Summer'),
+(1920, 6, 'Summer'),
+(1924, 1, 'Winter'),
+(1928, 12, 'Winter'),
+(1932, 13, 'Winter'),
+(1936, 14, 'Winter')
 
 	Insert into Sport (Name, Season, Description)
 Values
@@ -202,8 +202,6 @@ Values
 ('GRE', 7, NULL, NULL),
 ('GBR', 7, NULL, NULL),
 ('SWE', 7, NULL, NULL)
-
--- Create trigger to do the double insert automatically.
 
 	Insert into Event (Event_host_id, Discipline_id, Name, Gender)
 Values
