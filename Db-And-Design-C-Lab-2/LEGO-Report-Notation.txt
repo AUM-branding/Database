@@ -1,0 +1,13 @@
+1. See screenshots/reports
+
+2. What is the most challenging aspect of using this report builder?
+	- I found the layout to be slightly cumbersome with regards to column wrapping.
+	The method for wrapping columns involves setting up filters which I opted against,
+	otherwise you would need to utilize a newsletter matrix, according to some of the answers I found online.
+
+3. Does using this tool help you to understand how important it is to build a database that is properly structured 
+with correct datatypes, foreign keys, primary keys, etc.? Why or why not?
+	- Of course. Using a report builder showed me how important it is to keep employees in mind while
+	planning and programming a database and solution. It highlighted the usefulness of views as well. Not using
+	proper types, or redundant names can cause the report builder to throw an error, and this isn't helpful
+	for employees who may be reliant upon the builder that don't have SQL skills, or even access to the database.

@@ -1,0 +1,1 @@
+Notes from Database Courses for Database Concepts classes, as well as Database and Design classes.

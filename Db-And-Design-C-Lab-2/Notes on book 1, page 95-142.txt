@@ -1,0 +1,51 @@
+Professional Microsoft SQL Server 2012 Reporting Services Chapter 4-5 or Pages 95-142:
+
+Chapter 4:
+
+Use SELECT * FROM vSalesDetails instead of SELECT * FROM vSalesByTimeAndTerritory
+
+Each report has 3 components. A data source, a dataset, and a data region. The source is the database. The set is
+the queries needed to generate a report, and the region is the data organized in a readable way. The data region is
+also referred to as a matrix report.
+
+Views are a useful method to store datasets persistently.
+
+@@@ Windows Reporting Services @@@
+
+Windows Reporting Services uses either Native mode, or SharePoint mode.
+
+First right click on Data Sources, and add a data source. The build button can be used to build a connection string.
+The computer name, ., or LocalHost can be substituted for the current system when needed.
+
+Chapter 5:
+
+(This report was done as a mix of following along and taking notes)
+
+Table reports exist as do Matrix reports. A table report is more of a list, and a matrix can have overlaying fields
+to place relevant fields closer together.
+
+List reports are similar to a generic invoice.
+
+Chart reports visualize data in a way that would be presentable in a meeting, and easier to consume at a glance.
+
+Gauge reports are graphical, and useful for presenting immediacy. It can be used to show the "fullness" of 
+something, or to represent a comparison.
+
+Map reports allow geographic plotting. There are also standard XY plots.
+
+Grouping items allows collapsing them, and sorting them as well as conditions.
+
+Number/Text formatting is just like Microsoft Word and/or Excel, and has a lot of the same styling features.
+Clicking the text box property using right click allows for a more streamline, and organized way to review
+each option.
+
+Interactive sort can be used to dynamically update the field values in either ascending or descending order.
+
+Page breaks can be added by right clicking the upper left hand corner of the tablix and using properties.
+
+Creating group hierarchies allows visibility toggling.
+
+Formatting is mostly static, but there are options for expressive formatting that allows items to change
+based on logic or thresholds.
+
+Exporting projects can be done in various ways. Noteable outputs are Excel, and HTML.
