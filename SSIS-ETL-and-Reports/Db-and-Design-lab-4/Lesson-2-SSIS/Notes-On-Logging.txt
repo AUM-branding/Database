@@ -1,0 +1,1 @@
+Logging goes to a table called execution_data_statistics

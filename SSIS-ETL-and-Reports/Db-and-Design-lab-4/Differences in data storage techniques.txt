@@ -1,0 +1,20 @@
+https://www.talend.com/resources/data-lake-vs-data-warehouse/
+
+A data lake is raw data. A data warehouse is fully structured, and contains filters and correlations that allow the 
+data to be processed. Raw data has less redundancy, and the reliance is on the program to determine what to do with 
+it, and processed data has many redundancies that cause the storage needs to be more robust, as each filter, or each 
+complexity that gets added must be included with the data, as well as any separations that occurred to keep the data 
+file-able.
+
+https://www.mongodb.com/databases/data-lake-vs-data-warehouse-vs-database
+
+A database is a specified singular use schema, where a data warehouse is more complex, yet dynamic as it allows data 
+translation using a pre-determined schema that operates as a mark-up, and a data lake is not expected to adhere to 
+any structure besides storing the data itself. I view databases as "in use", warehouses as "transcription", and 
+lakes as "storage".
+
+https://www.oracle.com/autonomous-database/what-is-data-mart/
+
+A data mart is a data warehouse that specializes in a certain subject matter. If it is not useful to use a database, 
+or information is scattered across many databases, a company can build a data mart in order to maintain the 
+information in a structured way.
