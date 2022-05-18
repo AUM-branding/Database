@@ -1,0 +1,3 @@
+I chose to build a report based on the low inventory view
+because it closely mimics the needs of an actual company.
+Many employees will likely need to track this information.
